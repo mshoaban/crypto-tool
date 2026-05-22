@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  serverExternalPackages: ["ccxt"],
+  webpack: (config) => {
+    config.externals.push('protobufjs/minimal.js');
+    return config;
+  },
 };
 
 export default nextConfig;
