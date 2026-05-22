@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Orbitron:wght@400;700;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg: #071d15;
+  --surface: #0f2e23;
+  --surface2: #153b2e;
+  --surface3: #1c4f39;
+  --border: #2b6d53;
+  --border2: #174636;
+  --accent: #7df2ba;
+  --accent2: #4ddf99;
+  --accent-dim: rgba(125,242,186,0.18);
+  --accent-glow: rgba(125,242,186,0.28);
+  --red: #ff758b;
+  --red-dim: rgba(255,117,139,0.14);
+  --yellow: #ffda6c;
+  --yellow-dim: rgba(255,218,108,0.14);
+  --text: #e7f7ee;
+  --text-dim: #b1d2bd;
+  --text-muted: #8cb89e;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-display: 'Orbitron', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 60%, rgba(0,0,0,0.03));
+  pointer-events: none;
+  z-index: 0;
+}
+
+::-webkit-scrollbar { width: 6px; background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+@keyframes pulse-green { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+@keyframes slide-in { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@keyframes glow-pulse { 0%,100% { box-shadow:0 0 8px var(--accent-glow); } 50% { box-shadow:0 0 20px var(--accent-glow),0 0 40px var(--accent-dim); } }
+
+.animate-slide-in { animation: slide-in 0.3s ease forwards; }
+.animate-glow { animation: glow-pulse 2s infinite; }
+.animate-blink { animation: blink 1s step-end infinite; }
