@@ -22,6 +22,9 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  // Left pinch-zoomable on purpose: capping the scale locks out low-vision users.
+  width: "device-width",
+  initialScale: 1,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f4f5f9" },
     { media: "(prefers-color-scheme: dark)", color: "#0a0c11" },
