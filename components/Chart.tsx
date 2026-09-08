@@ -171,7 +171,7 @@ export default function Chart({
             </text>
           </g>
         ))}
-        {/* X labels */}
+        {/* X labels update */}
         {ticks.map((t, i) => (
           <text key={i} x={t.x} y={priceBottom + 14} textAnchor="middle" fontSize={10} fill="currentColor">
             {t.label}
