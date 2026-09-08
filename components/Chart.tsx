@@ -150,9 +150,8 @@ export default function Chart({
         viewBox={`0 0 ${width} ${height}`}
         preserveAspectRatio="none"
         role="img"
-        aria-label={`Candlestick chart, ${candles.length} bars. Latest ${
-          hoverCandle ? `open ${hoverCandle.open}, high ${hoverCandle.high}, low ${hoverCandle.low}, close ${hoverCandle.close}.` : "See hovered bar for details."
-        }`}
+        aria-label={`Candlestick chart, ${candles.length} bars. Latest ${hoverCandle ? `open ${hoverCandle.open}, high ${hoverCandle.high}, low ${hoverCandle.low}, close ${hoverCandle.close}.` : "See hovered bar for details."
+          }`}
         className="text-zinc-400 dark:text-zinc-600"
         onMouseMove={(e) => {
           const rect = e.currentTarget.getBoundingClientRect();
@@ -164,8 +163,8 @@ export default function Chart({
         onMouseLeave={() => setHover(null)}
       >
         {/* Grid + y labels */}
-        {yTicks.map((t) => (
-          <g key={t.label}>
+        {yTicks.map((t, i) => (
+          <g key={i}>
             <line x1={WIDTH_PAD} x2={width - WIDTH_PAD} y1={t.y} y2={t.y} stroke={gridColor} strokeOpacity={0.15} strokeDasharray="3 3" />
             <text x={width - WIDTH_PAD - 2} y={t.y - 4} textAnchor="end" fontSize={10} fill="currentColor">
               {t.label}
@@ -173,8 +172,8 @@ export default function Chart({
           </g>
         ))}
         {/* X labels */}
-        {ticks.map((t) => (
-          <text key={t.label} x={t.x} y={priceBottom + 14} textAnchor="middle" fontSize={10} fill="currentColor">
+        {ticks.map((t, i) => (
+          <text key={i} x={t.x} y={priceBottom + 14} textAnchor="middle" fontSize={10} fill="currentColor">
             {t.label}
           </text>
         ))}

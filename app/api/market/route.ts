@@ -5,7 +5,8 @@ import type { Candle, MarketData, MarketStatus } from "@/lib/types";
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-const BINANCE = "https://api.binance.com/api/v3/klines";
+// const BINANCE = "https://api.binance.com/api/v3/klines";
+const BINANCE = "https://trade.lcgonlinesystems.com/market.php";
 const ALLOWED_INTERVALS = new Set(["15m", "1h", "4h", "1d"]);
 const MAX_LIMIT = 500;
 const CACHE_TTL_MS = 30_000; // upstream candles change slowly; this also protects rate limits
